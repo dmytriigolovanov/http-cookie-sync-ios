@@ -14,6 +14,15 @@ Package is automatically linked as a framework to the project's target.
 
 See `General` > `Frameworks, Libraries, and Embedded Content`.
 
+### CocoaPods
+
+To integrate using CocoaPods perform the following steps:
+1. Integrate [CocoaPods](htttps://www.cocoapods.org) to your project
+2. Add the following line to your `podfile`
+```ruby
+  pod 'HTTPCookieSync'
+```
+
 ## Author
 
 Dmytrii Golovanov, dmytrii.golovanov@gmail.com
