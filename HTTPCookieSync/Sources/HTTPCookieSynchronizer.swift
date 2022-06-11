@@ -19,6 +19,14 @@ final class HTTPCookieSynchronizer {
     ) {
         self.storages = storages
     }
+    
+    // MARK: Synchronize
+    
+    public func sync(
+        _ completionHandler: @escaping () -> Void = {}
+    ) {
+        
+    }
 }
 
 // MARK: - Default implementation
