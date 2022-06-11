@@ -10,6 +10,7 @@
 		B4ED259C2853A6B000B6B7A4 /* HTTPCookieSync.h in Headers */ = {isa = PBXBuildFile; fileRef = B4ED258E2853A6B000B6B7A4 /* HTTPCookieSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */; };
 		B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */; };
+		B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		B4ED258E2853A6B000B6B7A4 /* HTTPCookieSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPCookieSync.h; sourceTree = "<group>"; };
 		B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookiePropertyKey+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+HTTPCookieSync.swift"; sourceTree = "<group>"; };
+		B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSycnhronizableStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				B4F84B3628552BBE00575BF9 /* Extensions */,
 				B4ED25A52853A6BD00B6B7A4 /* Headers */,
+				B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */,
 				B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */,
 				B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */,
 			);
