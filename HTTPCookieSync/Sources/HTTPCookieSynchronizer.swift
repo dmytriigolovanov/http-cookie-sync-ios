@@ -20,3 +20,16 @@ final class HTTPCookieSynchronizer {
         self.storages = storages
     }
 }
+
+// MARK: - Default implementation
+
+extension HTTPCookieSynchronizer {
+    public static func `default`() -> HTTPCookieSynchronizer {
+        return HTTPCookieSynchronizer(
+            storages: [
+                HTTPCookieStorage.shared,
+                WKWebsiteDataStore.default().httpCookieStore
+            ]
+        )
+    }
+}
