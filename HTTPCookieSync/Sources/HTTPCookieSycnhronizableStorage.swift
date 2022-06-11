@@ -23,3 +23,41 @@ public protocol HTTPCookieSynchronizableStorage {
         completionHandler: (() -> Void)?
     )
 }
+
+// MARK: - Actualization
+
+extension HTTPCookieSynchronizableStorage {
+    func actualize(
+        with cookies: [HTTPCookie],
+        completionHandler: @escaping () -> Void
+    ) {
+        let group = DispatchGroup()
+        
+        group.enter()
+        getAllCookies { oldCookies in
+            cookies.filter({ cookie in
+                oldCookies.shouldActualize(with: cookie)
+            }).forEach({ cookie in
+                group.enter()
+                self.setCookie(cookie) {
+                    group.leave()
+                }
+            })
+            
+            oldCookies.filter({ oldCookie in
+                cookies.contains(where: { $0.name == oldCookie.name })
+            }).forEach({ oldCookie in
+                group.enter()
+                self.deleteCookie(oldCookie) {
+                    group.leave()
+                }
+            })
+            
+            group.leave()
+        }
+        
+        group.notify(queue: .httpCookieSync) {
+            completionHandler()
+        }
+    }
+}

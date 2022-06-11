@@ -50,8 +50,12 @@ final class HTTPCookieSynchronizer {
             
             group.enter()
             self.getActualCookies { actualCookies in
-                #warning("Actualize cookies in storages")
-                
+                self.storages.forEach { storage in
+                    group.enter()
+                    storage.actualize(with: actualCookies) {
+                        group.leave()
+                    }
+                }
                 group.leave()
             }
             
