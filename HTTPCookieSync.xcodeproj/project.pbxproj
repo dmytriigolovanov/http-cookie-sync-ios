@@ -85,6 +85,7 @@
 			buildConfigurationList = B4ED259F2853A6B000B6B7A4 /* Build configuration list for PBXNativeTarget "HTTPCookieSync" */;
 			buildPhases = (
 				B4ED25862853A6B000B6B7A4 /* Headers */,
+				B4F84B332854F19700575BF9 /* SwiftLint */,
 				B4ED25872853A6B000B6B7A4 /* Sources */,
 				B4ED25882853A6B000B6B7A4 /* Frameworks */,
 				B4ED25892853A6B000B6B7A4 /* Resources */,
@@ -140,6 +141,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B4F84B332854F19700575BF9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: Swiftlint not installed, use 'brew install swiftlint' to install\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4ED25872853A6B000B6B7A4 /* Sources */ = {
