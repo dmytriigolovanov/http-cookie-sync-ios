@@ -8,7 +8,7 @@ HTTPCookieSync is an iOS library that allows synchronizing cookies between HTTPC
 
   spec.homepage         = 'https://github.com/dmytriigolovanov/http-cookie-sync-ios'
   spec.license          = { :type => 'MIT', :file => 'LICENSE' }
-  spec.author           = { 'Dmytrii Golovanov' => 'dmyrii.golovanov@gmail.com' }
+  spec.authors          = 'Dmytrii Golovanov', 'Vladyslav Otsevyk', 'Serhii Reznichenko'
   spec.source           = { :git => 'https://github.com/dmytriigolovanov/http-cookie-sync-ios.git', :tag => spec.version.to_s }
 
   spec.ios.deployment_target = '11.0'

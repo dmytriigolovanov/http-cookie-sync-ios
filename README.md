@@ -23,9 +23,9 @@ To integrate using CocoaPods perform the following steps:
   pod 'HTTPCookieSync'
 ```
 
-## Author
+## Authors
 
-Dmytrii Golovanov, dmytrii.golovanov@gmail.com
+Dmytrii Golovanov, Vladyslav Otsevyk, Serhii Reznichenko
 
 ## License
 
