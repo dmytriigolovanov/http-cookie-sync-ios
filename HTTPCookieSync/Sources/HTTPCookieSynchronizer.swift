@@ -19,6 +19,9 @@ final class HTTPCookieSynchronizer {
     
     // MARK: Init
     
+    /**
+     - Parameter storages: The cookie storages for future synchronization.
+     */
     public init(
         storages: [HTTPCookieSynchronizableStorage]
     ) {
@@ -27,6 +30,11 @@ final class HTTPCookieSynchronizer {
     
     // MARK: Synchronize
     
+    /**
+     Synchronizes cookies in provided storages.
+        
+     - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
+     */
     public func synchronize(
         _ completionHandler: @escaping () -> Void = {}
     ) {
@@ -99,6 +107,18 @@ final class HTTPCookieSynchronizer {
 // MARK: - Default implementation
 
 extension HTTPCookieSynchronizer {
+    /**
+     The default implementation of HTTPCookieSynchronizer.
+     
+     Default storages:
+     ```
+     HTTPCookieStorage.shared
+     ```
+     ```
+     WKWebsiteDataStore.default().httpCookieStore
+     ```
+      - Returns: A new HTTPCookieSynchronizer instance with the default provided storages.
+    */
     public static func `default`() -> HTTPCookieSynchronizer {
         return HTTPCookieSynchronizer(
             storages: [

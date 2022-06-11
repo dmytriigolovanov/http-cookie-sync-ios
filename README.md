@@ -1,4 +1,4 @@
-# HTPCookie Sync iOS
+# HTPCookieSync iOS
 
 HTTPCookieSync is an iOS library that allows to synchronize cookies between HTTPCookieStorage and WebKit's WKHTTPCookieStore.
 
@@ -21,6 +21,41 @@ To integrate using CocoaPods perform the following steps:
 2. Add the following line to your `podfile`
 ```ruby
   pod 'HTTPCookieSync'
+```
+
+## Using
+
+### Quick Start
+
+1. Create `HTTPCookieSynchronizer` instance, `default()` or custom.
+2. Call synchronize method, when it needed.
+
+```swift
+let httpCookieSynchronizer = HTTPCookieSynchronizer.default()
+
+...
+
+httpCookieSynchronizer.synchronize {
+    // cookies were synchronized
+}
+```
+
+> **NOTE:** Synchronizer instance must be stored (for application session) due to synchronization algorithm.
+
+### Default synchronizer
+
+Storages, used for default instances:
+* [`HTTPCookieStorage.shared`](https://developer.apple.com/documentation/foundation/httpcookiestorage/)
+* [`WKWebsiteDataStore.default().httpCookieStore`](https://developer.apple.com/documentation/webkit/wkwebsitedatastore)
+
+### Synchronizer with custom storages
+
+```swift
+let httpCookieSynchronizer = HTTPCookieSynchronizer(
+    storages: [
+        // Custom cookie storages
+    ]
+)
 ```
 
 ## Authors
