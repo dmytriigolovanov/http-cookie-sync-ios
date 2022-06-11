@@ -11,6 +11,11 @@ import WebKit
 
 final class HTTPCookieSynchronizer {
     private let storages: [HTTPCookieSynchronizableStorage]
+    private let queue: DispatchQueue = .httpCookieSync
+    
+    private var previousCookies: [HTTPCookie] = []
+    private var activeWorkItem: DispatchWorkItem?
+    private var completionHandlersQueue: [() -> Void] = []
     
     // MARK: Init
     
@@ -22,10 +27,34 @@ final class HTTPCookieSynchronizer {
     
     // MARK: Synchronize
     
-    public func sync(
+    public func synchronize(
         _ completionHandler: @escaping () -> Void = {}
     ) {
+        completionHandlersQueue.append(completionHandler)
         
+        executeNewWorkItem {
+            self.completionHandlersQueue.forEach { completionHandler in
+                completionHandler()
+            }
+            self.completionHandlersQueue.removeAll()
+        }
+    }
+    
+    private func executeNewWorkItem(
+        completionHandler: @escaping () -> Void
+    ) {
+        activeWorkItem?.cancel()
+        
+        let workItem = DispatchWorkItem {
+            
+            #warning("Synchronization algorithm")
+            
+            completionHandler()
+            self.activeWorkItem = nil
+        }
+        
+        activeWorkItem = workItem
+        queue.async(execute: workItem)
     }
 }
 
