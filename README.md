@@ -1,4 +1,4 @@
-# HTPCookie Sync iOS
+# HTPCookieSync iOS
 
 HTTPCookieSync is an iOS library that allows to synchronize cookies between HTTPCookieStorage and WebKit's WKHTTPCookieStore.
 
