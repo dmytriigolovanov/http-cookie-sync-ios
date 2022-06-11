@@ -11,6 +11,7 @@
 		B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */; };
 		B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */; };
 		B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */; };
+		B4F84B3E28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3D28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookiePropertyKey+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSycnhronizableStorage.swift; sourceTree = "<group>"; };
+		B4F84B3D28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookieStorage+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +79,9 @@
 		B4F84B3628552BBE00575BF9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */,
 				B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */,
+				B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */,
+				B4F84B3D28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */,
 				B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */,
+				B4F84B3E28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift in Sources */,
 				B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
