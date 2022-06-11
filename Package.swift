@@ -10,12 +10,12 @@ let package = Package(
         .library(
             name: "HTTPCookieSync",
             targets: ["HTTPCookieSync"]
-        ),
+        )
     ],
     targets: [
         .target(
             name: "HTTPCookieSync",
             path: "HTTPCookieSync/Sources"
-        ),
+        )
     ]
 )
