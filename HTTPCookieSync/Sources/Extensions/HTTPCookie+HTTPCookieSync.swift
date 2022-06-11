@@ -20,3 +20,40 @@ extension HTTPCookie {
         return Date(timeIntervalSinceReferenceDate: timeInterval)
     }
 }
+
+// MARK: - Array of HTTPCookie
+
+extension Array where Element: HTTPCookie {
+    func shouldActualize(
+        with cookie: Element
+    ) -> Bool {
+        guard let oldCookie = self.first(where: { $0.name == cookie.name }) else {
+            return true
+        }
+        
+        guard
+            let cookieCreated = cookie.created,
+            let oldCookieCreated = oldCookie.created
+        else {
+            return false
+        }
+        
+        return cookieCreated < oldCookieCreated
+    }
+    
+    mutating func actualize(
+        with cookie: Element
+    ) {
+        guard shouldActualize(with: cookie) else {
+            return
+        }
+        
+        enumerated().filter({ _, oldCookie in
+            oldCookie.name == cookie.name
+        }).forEach({ index, _ in
+            remove(at: index)
+        })
+        
+        append(cookie)
+    }
+}
