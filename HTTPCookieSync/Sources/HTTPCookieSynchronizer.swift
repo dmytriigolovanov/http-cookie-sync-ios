@@ -46,15 +46,49 @@ final class HTTPCookieSynchronizer {
         activeWorkItem?.cancel()
         
         let workItem = DispatchWorkItem {
+            let group = DispatchGroup()
             
-            #warning("Synchronization algorithm")
+            group.enter()
+            self.getActualCookies { actualCookies in
+                #warning("Actualize cookies in storages")
+                
+                group.leave()
+            }
             
-            completionHandler()
-            self.activeWorkItem = nil
+            group.notify(queue: self.queue) {
+                completionHandler()
+                self.activeWorkItem = nil
+            }
         }
         
         activeWorkItem = workItem
         queue.async(execute: workItem)
+    }
+    
+    // MARK: Actual cookies
+    
+    private func getActualCookies(
+        _ completionHandler: @escaping ([HTTPCookie]) -> Void
+    ) {
+        var actualCookies: [HTTPCookie] = self.previousCookies
+        
+        let group = DispatchGroup()
+        
+        storages.forEach { storage in
+            group.enter()
+            storage.getAllCookies { cookies in
+                
+                cookies.forEach { cookie in
+                    actualCookies.actualize(with: cookie)
+                }
+                
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .httpCookieSync) {
+            completionHandler(actualCookies)
+        }
     }
 }
 
