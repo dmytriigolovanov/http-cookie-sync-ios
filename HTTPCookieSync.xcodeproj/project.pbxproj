@@ -53,8 +53,8 @@
 		B4ED25812853A6B000B6B7A4 = {
 			isa = PBXGroup;
 			children = (
-				B4F84B48285565EB00575BF9 /* Metadata */,
 				B4ED258D2853A6B000B6B7A4 /* HTTPCookieSync */,
+				B4F84B48285565EB00575BF9 /* Metadata */,
 				B4ED258C2853A6B000B6B7A4 /* Products */,
 			);
 			sourceTree = "<group>";
