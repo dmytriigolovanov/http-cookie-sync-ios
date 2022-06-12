@@ -156,8 +156,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				CLASSPREFIX = HTTPCookie;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = "Dmytrii Golovanov";
 				TargetAttributes = {
 					B4ED258A2853A6B000B6B7A4 = {
 						CreatedOnToolsVersion = 13.4;
