@@ -119,12 +119,12 @@ extension HTTPCookieSynchronizer {
      ```
       - Returns: A new HTTPCookieSynchronizer instance with the default provided storages.
     */
-    public static func `default`() -> HTTPCookieSynchronizer {
+    public static var `default`: HTTPCookieSynchronizer = {
         return HTTPCookieSynchronizer(
             storages: [
                 HTTPCookieStorage.shared,
                 WKWebsiteDataStore.default().httpCookieStore
             ]
         )
-    }
+    }()
 }
