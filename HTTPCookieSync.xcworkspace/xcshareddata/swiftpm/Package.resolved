@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/dmytriigolovanov/http-cookie-sync-ios",
       "state" : {
-        "revision" : "ec920d6112e22452c7d2d9bb948aca5e9aefd7f1",
-        "version" : "1.1.1"
+        "revision" : "960a22050ccf17369b092803e754746e07b06608",
+        "version" : "1.1.2"
       }
     }
   ],
