@@ -8,6 +8,9 @@
 
 import Foundation
 
+@available(*, deprecated, renamed: "HTTPCookieSyncableStorage")
+typealias HTTPCookieSynchronizableStorage = HTTPCookieSyncableStorage
+
 public protocol HTTPCookieSyncableStorage {
     func getAllCookies(
         _ completionHandler: @escaping ([HTTPCookie]) -> Void
