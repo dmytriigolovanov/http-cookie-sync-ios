@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-final class HTTPCookieSynchronizer {
+public final class HTTPCookieSynchronizer {
     private let storages: [HTTPCookieSynchronizableStorage]
     private let queue: DispatchQueue = .httpCookieSync
     
