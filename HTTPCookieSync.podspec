@@ -23,7 +23,7 @@ HTTPCookieSync is an iOS library that allows synchronizing cookies between HTTPC
 
   s.ios.deployment_target = '11.0'
 
-  s.swift_version = '5.0'
+  s.swift_version = '5.3'
 
   s.source_files  = 'HTTPCookieSync/Sources/**/*'
   s.public_header_files = 'HTTPCookieSync/Sources/Headers/**/*.h'
