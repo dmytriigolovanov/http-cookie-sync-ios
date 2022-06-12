@@ -95,6 +95,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B403F2D22856419000309954 /* Build configuration list for PBXNativeTarget "HTTPCookieSyncDemo" */;
 			buildPhases = (
+				B403F2DA2856434700309954 /* SwiftLint */,
 				B403F2BA2856418E00309954 /* Sources */,
 				B403F2BB2856418E00309954 /* Frameworks */,
 				B403F2BC2856418E00309954 /* Resources */,
@@ -153,6 +154,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B403F2DA2856434700309954 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: Swiftlint not installed, use 'brew install swiftlint' to install\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B403F2BA2856418E00309954 /* Sources */ = {
