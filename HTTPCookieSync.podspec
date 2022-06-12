@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HTTPCookieSync'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'Use HTTPCookieSync to sync cookies storages'
 
   s.description      = <<-DESC
