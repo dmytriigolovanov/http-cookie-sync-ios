@@ -2,6 +2,10 @@
 
 HTTPCookieSync is an iOS library that allows to synchronize cookies between HTTPCookieStorage and WebKit's WKHTTPCookieStore.
 
+## Requirements
+
+* iOS 11.0+
+
 ## Installation
 
 ### Swift Package Manager
