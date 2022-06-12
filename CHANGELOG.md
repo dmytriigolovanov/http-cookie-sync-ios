@@ -1,8 +1,14 @@
 # HTTPCookieSync iOS Release Notes
 
-## v1.0.0 (2022-06-12)
+## v1.1.2 (2022-06-12)
 
-* Initial release
+* [Fixed] Fix algorithm dispatch groups
+
+## v1.1.1 (2022-06-12)
+
+* [Fixed] Fixed deprecation message access level
+* [Fixed] Fixed xcodeproj settings
+* [Change] Set Swift version to 5.3
 
 ## v1.1.0 (2022-06-12)
 
@@ -10,8 +16,6 @@
 * [Changed] Shortified naming
 * [Fixed] Fixed podspec
 
-## v1.1.1 (2022-06-12)
+## v1.0.0 (2022-06-12)
 
-* [Fixed] Fixed deprecation message access level
-* [Fixed] Fixed xcodeproj settings
-* [Change] Set Swift version to 5.3
+* Initial release
