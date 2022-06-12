@@ -19,7 +19,6 @@
 		B4F84B4D2855660800575BF9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4A2855660800575BF9 /* LICENSE */; };
 		B4F84B4E2855660800575BF9 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4B2855660800575BF9 /* CHANGELOG.md */; };
 		B4F84B532856034E00575BF9 /* HTTPCookieSync.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B512856034E00575BF9 /* HTTPCookieSync.podspec */; };
-		B4F84B542856034E00575BF9 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B522856034E00575BF9 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,7 +228,6 @@
 				B4F84B4228552D7D00575BF9 /* HTTPCookieSyncer.swift in Sources */,
 				B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */,
 				B4F84B46285541A400575BF9 /* DispatchQueue+HTTPCookieSync.swift in Sources */,
-				B4F84B542856034E00575BF9 /* Package.swift in Sources */,
 				B4F84B4028552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift in Sources */,
 				B4F84B3E28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift in Sources */,
 				B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */,
