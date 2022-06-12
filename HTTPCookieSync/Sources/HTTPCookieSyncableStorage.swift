@@ -38,24 +38,35 @@ extension HTTPCookieSyncableStorage {
         
         group.enter()
         getAllCookies { oldCookies in
-            cookies.filter({ cookie in
-                oldCookies.shouldActualize(with: cookie)
-            }).forEach({ cookie in
+            group.enter()
+            cookies.enumerated().forEach({ index, cookie in
+                guard oldCookies.shouldActualize(with: cookie) else {
+                    return
+                }
                 group.enter()
                 self.setCookie(cookie) {
                     group.leave()
                 }
-            })
-            
-            oldCookies.filter({ oldCookie in
-                cookies.contains(where: { $0.name == oldCookie.name })
-            }).forEach({ oldCookie in
-                group.enter()
-                self.deleteCookie(oldCookie) {
+                
+                if index == cookies.count - 1 {
                     group.leave()
                 }
             })
             
+            group.enter()
+            oldCookies.enumerated().forEach({ index, oldCookie in
+                guard cookies.contains(where: { $0.name == oldCookie.name }) else {
+                    return
+                }
+                group.enter()
+                self.deleteCookie(oldCookie) {
+                    group.leave()
+                }
+                
+                if index == oldCookies.count - 1 {
+                    group.leave()
+                }
+            })
             group.leave()
         }
         
