@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 
 @available(*, deprecated, renamed: "HTTPCookieSyncer")
-typealias HTTPCookieSynchronizer = HTTPCookieSyncer
+public typealias HTTPCookieSynchronizer = HTTPCookieSyncer
 
 public final class HTTPCookieSyncer {
     private let storages: [HTTPCookieSyncableStorage]

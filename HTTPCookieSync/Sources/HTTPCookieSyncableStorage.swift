@@ -9,7 +9,7 @@
 import Foundation
 
 @available(*, deprecated, renamed: "HTTPCookieSyncableStorage")
-typealias HTTPCookieSynchronizableStorage = HTTPCookieSyncableStorage
+public typealias HTTPCookieSynchronizableStorage = HTTPCookieSyncableStorage
 
 public protocol HTTPCookieSyncableStorage {
     func getAllCookies(
