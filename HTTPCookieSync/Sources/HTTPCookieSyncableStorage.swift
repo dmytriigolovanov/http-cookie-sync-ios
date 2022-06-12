@@ -1,5 +1,5 @@
 //
-//  HTTPCookieSynchronizableStorage.swift
+//  HTTPCookieSyncableStorage.swift
 //  HTTPCookieSync
 //
 //  Created by Dmytrii Golovanov on 10.06.2022.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol HTTPCookieSynchronizableStorage {
+public protocol HTTPCookieSyncableStorage {
     func getAllCookies(
         _ completionHandler: @escaping ([HTTPCookie]) -> Void
     )
@@ -26,7 +26,7 @@ public protocol HTTPCookieSynchronizableStorage {
 
 // MARK: - Actualization
 
-extension HTTPCookieSynchronizableStorage {
+extension HTTPCookieSyncableStorage {
     func actualize(
         with cookies: [HTTPCookie],
         completionHandler: @escaping () -> Void

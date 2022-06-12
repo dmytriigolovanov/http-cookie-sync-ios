@@ -10,7 +10,7 @@ import Foundation
 import WebKit
 
 public final class HTTPCookieSyncer {
-    private let storages: [HTTPCookieSynchronizableStorage]
+    private let storages: [HTTPCookieSyncableStorage]
     private let queue: DispatchQueue = .httpCookieSync
     
     private var previousCookies: [HTTPCookie] = []
@@ -23,7 +23,7 @@ public final class HTTPCookieSyncer {
      - Parameter storages: The cookie storages for future synchronization.
      */
     public init(
-        storages: [HTTPCookieSynchronizableStorage]
+        storages: [HTTPCookieSyncableStorage]
     ) {
         self.storages = storages
     }

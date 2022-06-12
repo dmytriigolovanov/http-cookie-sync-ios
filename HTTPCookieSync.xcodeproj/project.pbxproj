@@ -10,7 +10,7 @@
 		B4ED259C2853A6B000B6B7A4 /* HTTPCookieSync.h in Headers */ = {isa = PBXBuildFile; fileRef = B4ED258E2853A6B000B6B7A4 /* HTTPCookieSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4F84B3828552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */; };
 		B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */; };
-		B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */; };
+		B4F84B3C28552CCE00575BF9 /* HTTPCookieSyncableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3B28552CCE00575BF9 /* HTTPCookieSyncableStorage.swift */; };
 		B4F84B3E28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3D28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift */; };
 		B4F84B4028552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3F28552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift */; };
 		B4F84B4228552D7D00575BF9 /* HTTPCookieSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B4128552D7D00575BF9 /* HTTPCookieSyncer.swift */; };
@@ -25,7 +25,7 @@
 		B4ED258E2853A6B000B6B7A4 /* HTTPCookieSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPCookieSync.h; sourceTree = "<group>"; };
 		B4F84B3728552BE400575BF9 /* HTTPCookiePropertyKey+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookiePropertyKey+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B3928552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+HTTPCookieSync.swift"; sourceTree = "<group>"; };
-		B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSycnhronizableStorage.swift; sourceTree = "<group>"; };
+		B4F84B3B28552CCE00575BF9 /* HTTPCookieSyncableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSyncableStorage.swift; sourceTree = "<group>"; };
 		B4F84B3D28552D0A00575BF9 /* HTTPCookieStorage+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookieStorage+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B3F28552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKHTTPCookieStore+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B4128552D7D00575BF9 /* HTTPCookieSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSyncer.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			children = (
 				B4F84B3628552BBE00575BF9 /* Extensions */,
 				B4ED25A52853A6BD00B6B7A4 /* Headers */,
-				B4F84B3B28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift */,
+				B4F84B3B28552CCE00575BF9 /* HTTPCookieSyncableStorage.swift */,
 				B4F84B4128552D7D00575BF9 /* HTTPCookieSyncer.swift */,
 			);
 			path = Sources;
@@ -218,7 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4F84B3C28552CCE00575BF9 /* HTTPCookieSycnhronizableStorage.swift in Sources */,
+				B4F84B3C28552CCE00575BF9 /* HTTPCookieSyncableStorage.swift in Sources */,
 				B4F84B4228552D7D00575BF9 /* HTTPCookieSyncer.swift in Sources */,
 				B4F84B3A28552C1C00575BF9 /* HTTPCookie+HTTPCookieSync.swift in Sources */,
 				B4F84B46285541A400575BF9 /* DispatchQueue+HTTPCookieSync.swift in Sources */,
