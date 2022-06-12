@@ -9,6 +9,9 @@
 import Foundation
 import WebKit
 
+@available(*, deprecated, renamed: "HTTPCookieSyncer")
+typealias HTTPCookieSynchronizer = HTTPCookieSyncer
+
 public final class HTTPCookieSyncer {
     private let storages: [HTTPCookieSyncableStorage]
     private let queue: DispatchQueue = .httpCookieSync
@@ -28,10 +31,9 @@ public final class HTTPCookieSyncer {
         self.storages = storages
     }
     
-    // MARK: Synchronize
-    
+    // MARK: Sync
     /**
-     Synchronizes cookies in provided storages.
+     Synces cookies in provided storages.
         
      - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
      */
@@ -47,6 +49,20 @@ public final class HTTPCookieSyncer {
             self.completionHandlersQueue.removeAll()
         }
     }
+    
+    /**
+     Synchronizes cookies in provided storages.
+        
+     - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
+     */
+    @available(*, deprecated, renamed: "sync")
+    public func synchronize(
+        _ completionHandler: @escaping () -> Void = {}
+    ) {
+        sync(completionHandler)
+    }
+    
+    // MARK: DispatchWorkItem
     
     private func executeNewWorkItem(
         completionHandler: @escaping () -> Void
