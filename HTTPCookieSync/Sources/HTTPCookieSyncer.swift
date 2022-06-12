@@ -1,5 +1,5 @@
 //
-//  HTTPCookieSynchronizer.swift
+//  HTTPCookieSyncer.swift
 //  HTTPCookieSync
 //
 //  Created by Dmytrii Golovanov on 10.06.2022.
@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-public final class HTTPCookieSynchronizer {
+public final class HTTPCookieSyncer {
     private let storages: [HTTPCookieSynchronizableStorage]
     private let queue: DispatchQueue = .httpCookieSync
     
@@ -106,9 +106,9 @@ public final class HTTPCookieSynchronizer {
 
 // MARK: - Default implementation
 
-extension HTTPCookieSynchronizer {
+extension HTTPCookieSyncer {
     /**
-     The default implementation of HTTPCookieSynchronizer.
+     The default implementation of HTTPCookieSyncer.
      
      Default storages:
      ```
@@ -117,10 +117,10 @@ extension HTTPCookieSynchronizer {
      ```
      WKWebsiteDataStore.default().httpCookieStore
      ```
-      - Returns: A new HTTPCookieSynchronizer instance with the default provided storages.
+      - Returns: A new HTTPCookieSyncer instance with the default provided storages.
     */
-    public static var `default`: HTTPCookieSynchronizer = {
-        return HTTPCookieSynchronizer(
+    public static var `default`: HTTPCookieSyncer = {
+        return HTTPCookieSyncer(
             storages: [
                 HTTPCookieStorage.shared,
                 WKWebsiteDataStore.default().httpCookieStore
