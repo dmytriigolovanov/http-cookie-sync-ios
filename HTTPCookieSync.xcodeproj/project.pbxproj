@@ -18,6 +18,7 @@
 		B4F84B4C2855660800575BF9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B492855660800575BF9 /* README.md */; };
 		B4F84B4D2855660800575BF9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4A2855660800575BF9 /* LICENSE */; };
 		B4F84B4E2855660800575BF9 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4B2855660800575BF9 /* CHANGELOG.md */; };
+		B4F84B532856034E00575BF9 /* HTTPCookieSync.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B512856034E00575BF9 /* HTTPCookieSync.podspec */; };
 		B4F84B542856034E00575BF9 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B522856034E00575BF9 /* Package.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		B4F84B492855660800575BF9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B4F84B4A2855660800575BF9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B4F84B4B2855660800575BF9 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		B4F84B512856034E00575BF9 /* HTTPCookieSync.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HTTPCookieSync.podspec; sourceTree = "<group>"; };
 		B4F84B522856034E00575BF9 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F84B4B2855660800575BF9 /* CHANGELOG.md */,
+				B4F84B512856034E00575BF9 /* HTTPCookieSync.podspec */,
 				B4F84B4A2855660800575BF9 /* LICENSE */,
 				B4F84B522856034E00575BF9 /* Package.swift */,
 				B4F84B492855660800575BF9 /* README.md */,
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4F84B4D2855660800575BF9 /* LICENSE in Resources */,
+				B4F84B532856034E00575BF9 /* HTTPCookieSync.podspec in Resources */,
 				B4F84B4E2855660800575BF9 /* CHANGELOG.md in Resources */,
 				B4F84B4C2855660800575BF9 /* README.md in Resources */,
 			);
