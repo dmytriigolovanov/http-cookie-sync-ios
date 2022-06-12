@@ -70,22 +70,11 @@ public final class HTTPCookieSyncer {
         activeWorkItem?.cancel()
         
         let workItem = DispatchWorkItem {
-            let group = DispatchGroup()
-            
-            group.enter()
             self.getActualCookies { actualCookies in
-                self.storages.forEach { storage in
-                    group.enter()
-                    storage.actualize(with: actualCookies) {
-                        group.leave()
-                    }
+                self.actualizeStorages(with: actualCookies) {
+                    completionHandler()
+                    self.activeWorkItem = nil
                 }
-                group.leave()
-            }
-            
-            group.notify(queue: self.queue) {
-                completionHandler()
-                self.activeWorkItem = nil
             }
         }
         
@@ -102,7 +91,8 @@ public final class HTTPCookieSyncer {
         
         let group = DispatchGroup()
         
-        storages.forEach { storage in
+        group.enter()
+        storages.enumerated().forEach { index, storage in
             group.enter()
             storage.getAllCookies { cookies in
                 
@@ -112,10 +102,39 @@ public final class HTTPCookieSyncer {
                 
                 group.leave()
             }
+            
+            if index == storages.count - 1 {
+                group.leave()
+            }
         }
         
         group.notify(queue: .httpCookieSync) {
             completionHandler(actualCookies)
+        }
+    }
+    
+    // MARK: Actualize
+    
+    private func actualizeStorages(
+        with cookies: [HTTPCookie],
+        _ completionHandler: @escaping () -> Void
+    ) {
+        let group = DispatchGroup()
+        
+        group.enter()
+        self.storages.enumerated().forEach { index, storage in
+            group.enter()
+            storage.actualize(with: cookies) {
+                group.leave()
+            }
+            
+            if index == storages.count - 1 {
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .httpCookieSync) {
+            completionHandler()
         }
     }
 }
