@@ -35,7 +35,7 @@ public final class HTTPCookieSyncer {
         
      - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
      */
-    public func synchronize(
+    public func sync(
         _ completionHandler: @escaping () -> Void = {}
     ) {
         completionHandlersQueue.append(completionHandler)
