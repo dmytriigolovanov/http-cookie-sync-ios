@@ -9,7 +9,7 @@
 import Foundation
 import WebKit
 
-extension WKHTTPCookieStore: HTTPCookieSynchronizableStorage {
+extension WKHTTPCookieStore: HTTPCookieSyncableStorage {
     public func deleteCookie(
         _ cookie: HTTPCookie,
         completionHandler: (() -> Void)?

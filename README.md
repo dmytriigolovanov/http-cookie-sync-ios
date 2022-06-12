@@ -31,31 +31,31 @@ To integrate using CocoaPods perform the following steps:
 
 ### Quick Start
 
-1. Create `HTTPCookieSynchronizer` instance, `default()` or custom.
-2. Call synchronize method, when it needed.
+1. Create `HTTPCookieSyncer` instance, `default` or custom.
+2. Call `sync()` method, when it needed.
 
 ```swift
-let httpCookieSynchronizer = HTTPCookieSynchronizer.default()
+let httpCookieSyncer = HTTPCookieSyncer.default
 
 ...
 
-httpCookieSynchronizer.synchronize {
-    // cookies were synchronized
+httpCookieSyncer.synchronize {
+    // cookies were synced
 }
 ```
 
-> **NOTE:** Synchronizer instance must be stored (for application session) due to synchronization algorithm.
+> **NOTE:** Syncer instance must be stored (for application session) due to synchronization algorithm.
 
-### Default synchronizer
+### Default syncer
 
 Storages, used for default instances:
 * [`HTTPCookieStorage.shared`](https://developer.apple.com/documentation/foundation/httpcookiestorage/)
 * [`WKWebsiteDataStore.default().httpCookieStore`](https://developer.apple.com/documentation/webkit/wkwebsitedatastore)
 
-### Synchronizer with custom storages
+### Syncer with custom storages
 
 ```swift
-let httpCookieSynchronizer = HTTPCookieSynchronizer(
+let httpCookieSyncer = HTTPCookieSyncer(
     storages: [
         // Custom cookie storages
     ]

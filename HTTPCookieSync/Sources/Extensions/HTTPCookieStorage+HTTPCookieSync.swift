@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension HTTPCookieStorage: HTTPCookieSynchronizableStorage {
+extension HTTPCookieStorage: HTTPCookieSyncableStorage {
     public func getAllCookies(
         _ completionHandler: @escaping ([HTTPCookie]) -> Void
     ) {

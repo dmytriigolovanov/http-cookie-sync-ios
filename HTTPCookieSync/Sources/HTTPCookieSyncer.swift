@@ -1,5 +1,5 @@
 //
-//  HTTPCookieSynchronizer.swift
+//  HTTPCookieSyncer.swift
 //  HTTPCookieSync
 //
 //  Created by Dmytrii Golovanov on 10.06.2022.
@@ -9,8 +9,8 @@
 import Foundation
 import WebKit
 
-public final class HTTPCookieSynchronizer {
-    private let storages: [HTTPCookieSynchronizableStorage]
+public final class HTTPCookieSyncer {
+    private let storages: [HTTPCookieSyncableStorage]
     private let queue: DispatchQueue = .httpCookieSync
     
     private var previousCookies: [HTTPCookie] = []
@@ -23,7 +23,7 @@ public final class HTTPCookieSynchronizer {
      - Parameter storages: The cookie storages for future synchronization.
      */
     public init(
-        storages: [HTTPCookieSynchronizableStorage]
+        storages: [HTTPCookieSyncableStorage]
     ) {
         self.storages = storages
     }
@@ -35,7 +35,7 @@ public final class HTTPCookieSynchronizer {
         
      - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
      */
-    public func synchronize(
+    public func sync(
         _ completionHandler: @escaping () -> Void = {}
     ) {
         completionHandlersQueue.append(completionHandler)
@@ -106,9 +106,9 @@ public final class HTTPCookieSynchronizer {
 
 // MARK: - Default implementation
 
-extension HTTPCookieSynchronizer {
+extension HTTPCookieSyncer {
     /**
-     The default implementation of HTTPCookieSynchronizer.
+     The default implementation of HTTPCookieSyncer.
      
      Default storages:
      ```
@@ -117,10 +117,10 @@ extension HTTPCookieSynchronizer {
      ```
      WKWebsiteDataStore.default().httpCookieStore
      ```
-      - Returns: A new HTTPCookieSynchronizer instance with the default provided storages.
+      - Returns: A new HTTPCookieSyncer instance with the default provided storages.
     */
-    public static var `default`: HTTPCookieSynchronizer = {
-        return HTTPCookieSynchronizer(
+    public static var `default`: HTTPCookieSyncer = {
+        return HTTPCookieSyncer(
             storages: [
                 HTTPCookieStorage.shared,
                 WKWebsiteDataStore.default().httpCookieStore
