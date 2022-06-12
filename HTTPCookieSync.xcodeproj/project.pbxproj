@@ -15,6 +15,9 @@
 		B4F84B4028552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B3F28552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift */; };
 		B4F84B4228552D7D00575BF9 /* HTTPCookieSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B4128552D7D00575BF9 /* HTTPCookieSynchronizer.swift */; };
 		B4F84B46285541A400575BF9 /* DispatchQueue+HTTPCookieSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F84B45285541A400575BF9 /* DispatchQueue+HTTPCookieSync.swift */; };
+		B4F84B4C2855660800575BF9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B492855660800575BF9 /* README.md */; };
+		B4F84B4D2855660800575BF9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4A2855660800575BF9 /* LICENSE */; };
+		B4F84B4E2855660800575BF9 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = B4F84B4B2855660800575BF9 /* CHANGELOG.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		B4F84B3F28552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKHTTPCookieStore+HTTPCookieSync.swift"; sourceTree = "<group>"; };
 		B4F84B4128552D7D00575BF9 /* HTTPCookieSynchronizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieSynchronizer.swift; sourceTree = "<group>"; };
 		B4F84B45285541A400575BF9 /* DispatchQueue+HTTPCookieSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+HTTPCookieSync.swift"; sourceTree = "<group>"; };
+		B4F84B492855660800575BF9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B4F84B4A2855660800575BF9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		B4F84B4B2855660800575BF9 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 		B4ED25812853A6B000B6B7A4 = {
 			isa = PBXGroup;
 			children = (
+				B4F84B48285565EB00575BF9 /* Metadata */,
 				B4ED258D2853A6B000B6B7A4 /* HTTPCookieSync */,
 				B4ED258C2853A6B000B6B7A4 /* Products */,
 			);
@@ -93,6 +100,16 @@
 				B4F84B3F28552D3B00575BF9 /* WKHTTPCookieStore+HTTPCookieSync.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B4F84B48285565EB00575BF9 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				B4F84B4B2855660800575BF9 /* CHANGELOG.md */,
+				B4F84B4A2855660800575BF9 /* LICENSE */,
+				B4F84B492855660800575BF9 /* README.md */,
+			);
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +184,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F84B4D2855660800575BF9 /* LICENSE in Resources */,
+				B4F84B4E2855660800575BF9 /* CHANGELOG.md in Resources */,
+				B4F84B4C2855660800575BF9 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
