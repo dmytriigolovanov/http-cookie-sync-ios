@@ -29,6 +29,7 @@ final class MainViewController: UIViewController {
     // MARK: Private properties
     
     private var webView: WKWebView!
+    private var rightBarButtonItem: UIBarButtonItem!
     
     private var viewModel: MainViewModel!
     private var mediator: MainViewMediator!
@@ -46,6 +47,14 @@ final class MainViewController: UIViewController {
             configuration: AppConfiguration.webViewConfiguration
         )
         view.addSubview(webView)
+        
+        rightBarButtonItem = UIBarButtonItem(
+            title: "Cookies List",
+            style: .plain,
+            target: self,
+            action: #selector(barButtonItemPressed(_:))
+        )
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 
     override func viewDidLoad() {
@@ -72,5 +81,27 @@ final class MainViewController: UIViewController {
                 self.webView.load(urlRequest)
             }
         }
+        self.viewModel.showViewController = { [weak self] viewController in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.show(
+                    viewController,
+                    sender: self
+                )
+            }
+        }
+    }
+    
+    @objc private func barButtonItemPressed(
+        _ sender: UIBarButtonItem
+    ) {
+        switch sender {
+        case rightBarButtonItem:
+            viewModel.rightBarButtonItemPressed()
+        default:
+            break
+        }
+        
     }
 }

@@ -52,26 +52,26 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
         self.sections = []
         var sections: [CookiesListViewModelSection] = []
         
-        let dispatchGroup = DispatchGroup()
-        
-        dispatchGroup.enter()
-        storages.forEach { storage in
-            dispatchGroup.enter()
-            storage.getAllCookies { cookies in
-                let section = CookiesListViewModelSection(
-                    title: "\(type(of: storage))",
-                    cookies: cookies
-                )
-                sections.append(section)
-                dispatchGroup.leave()
+        DispatchQueue.global(qos: .userInitiated).async {
+            let dispatchGroup = DispatchGroup()
+            
+            self.storages.forEach { storage in
+                
+                dispatchGroup.enter()
+                storage.getAllCookies { cookies in
+                    let section = CookiesListViewModelSection(
+                        title: "\(type(of: storage))",
+                        cookies: cookies
+                    )
+                    sections.append(section)
+                    dispatchGroup.leave()
+                }
             }
             
-            dispatchGroup.leave()
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            self.sections = sections
-            self.dataUpdated?()
+            dispatchGroup.notify(queue: .main) {
+                self.sections = sections
+                self.dataUpdated?()
+            }
         }
     }
     

@@ -36,7 +36,8 @@ final class CookiesListViewController: UIViewController {
             frame: CGRect(
                 origin: .zero,
                 size: view.bounds.size
-            )
+            ),
+            style: .grouped
         )
         view.addSubview(tableView)
     }

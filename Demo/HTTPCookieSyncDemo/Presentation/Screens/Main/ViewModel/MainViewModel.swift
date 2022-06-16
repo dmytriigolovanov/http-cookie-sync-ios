@@ -12,6 +12,7 @@ import WebKit
 
 protocol MainViewModelInput {
     func viewDidLoad()
+    func rightBarButtonItemPressed()
     func decidePolicyFor(
         wkNavigationAction: WKNavigationAction,
         inWebView webView: WKWebView,
@@ -29,6 +30,7 @@ protocol MainViewModelInput {
 protocol MainViewModelOutput {
     var url: URL { get }
     var loadURL: ((URL) -> Void)? { get set }
+    var showViewController: ((UIViewController) -> Void)? { get set }
 }
 
 typealias MainViewModel = MainViewModelInput & MainViewModelOutput
@@ -40,6 +42,7 @@ final class DefaultMainViewModel: MainViewModel {
     let url: URL
     
     var loadURL: ((URL) -> Void)?
+    var showViewController: ((UIViewController) -> Void)?
     
     // MARK: Init
     
@@ -53,6 +56,14 @@ final class DefaultMainViewModel: MainViewModel {
     
     func viewDidLoad() {
         loadURL?(url)
+    }
+    
+    func rightBarButtonItemPressed() {
+        let viewModel = DefaultCookiesListViewModel()
+        let viewController = CookiesListViewController.build(
+            with: viewModel
+        )
+        showViewController?(viewController)
     }
     
     func decidePolicyFor(
