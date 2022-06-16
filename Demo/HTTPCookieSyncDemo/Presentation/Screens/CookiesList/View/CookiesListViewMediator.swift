@@ -57,7 +57,7 @@ extension CookiesListViewMediator: UITableViewDataSource {
         
         let item = viewModel.sections[indexPath.section].items[indexPath.row]
         cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = item.details
+        cell.detailTextLabel?.text = item.value
         
         return cell
     }
@@ -67,6 +67,13 @@ extension CookiesListViewMediator: UITableViewDataSource {
         titleForHeaderInSection section: Int
     ) -> String? {
         return viewModel.sections[section].title
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
 

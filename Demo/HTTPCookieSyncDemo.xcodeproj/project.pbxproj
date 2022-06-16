@@ -22,6 +22,8 @@
 		B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B239D6285BCFFE00631FF7 /* Main.storyboard */; };
 		B4B239DB285BD32D00631FF7 /* HTTPCookieSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; };
 		B4B239DC285BD32D00631FF7 /* HTTPCookieSync.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4B239E1285BD92F00631FF7 /* HTTPCookie+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */; };
+		B4B239E3285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +57,8 @@
 		B4B239D4285BCB9000631FF7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B4B239D7285BCFFE00631FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HTTPCookieSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Extensions.swift"; sourceTree = "<group>"; };
+		B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookiePropertyKey+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				B403F2D6285641DD00309954 /* Application */,
+				B4B239DE285BD91000631FF7 /* Common */,
 				B403F2D72856420000309954 /* Presentation */,
 				B403F2D82856421700309954 /* Resources */,
 			);
@@ -195,6 +200,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B4B239DE285BD91000631FF7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239DF285BD92100631FF7 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B4B239DF285BD92100631FF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */,
+				B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,8 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */,
+				B4B239E1285BD92F00631FF7 /* HTTPCookie+Extensions.swift in Sources */,
 				B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */,
 				B403F2C62856418E00309954 /* MainViewController.swift in Sources */,
+				B4B239E3285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift in Sources */,
 				B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */,
 				B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */,
 				B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */,

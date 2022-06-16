@@ -65,5 +65,15 @@ final class CookiesListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        self.viewModel.showAlertController = { [weak self] alertController in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.present(
+                    alertController,
+                    animated: true
+                )
+            }
+        }
     }
 }

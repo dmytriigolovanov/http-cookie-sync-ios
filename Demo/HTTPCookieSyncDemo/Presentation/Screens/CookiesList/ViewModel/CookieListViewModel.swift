@@ -7,6 +7,7 @@
 
 import Foundation
 import HTTPCookieSync
+import UIKit
 
 // MARK: - CookiesListViewModel Input
 
@@ -20,6 +21,7 @@ protocol CookiesListViewModelInput {
 protocol CookiesListViewModelOutput {
     var sections: [CookiesListViewModelSection] { get }
     var dataUpdated: (() -> Void)? { get set }
+    var showAlertController: ((UIAlertController) -> Void)? { get set }
 }
 
 typealias CookiesListViewModel = CookiesListViewModelInput & CookiesListViewModelOutput
@@ -36,6 +38,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
     
     private(set) var sections: [CookiesListViewModelSection] = []
     var dataUpdated: (() -> Void)?
+    var showAlertController: ((UIAlertController) -> Void)?
     
     // MARK: Init
     
@@ -82,6 +85,25 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
     }
     
     func didSelectTableViewRow(at indexPath: IndexPath) {
+        guard
+            indexPath.section < sections.count,
+            indexPath.row < sections[indexPath.section].items.count
+        else {
+            return
+        }
+            
+        let item = sections[indexPath.section].items[indexPath.row]
         
+        let alertController = UIAlertController(
+            title: item.title,
+            message: item.details,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default
+        )
+        alertController.addAction(okAction)
+        showAlertController?(alertController)
     }
 }
