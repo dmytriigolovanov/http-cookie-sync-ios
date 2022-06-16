@@ -27,9 +27,14 @@ struct AppConfiguration {
         return WKWebsiteDataStore.default()
     }()
     
+    static var processPool: WKProcessPool = {
+       return WKProcessPool()
+    }()
+    
     static var webViewConfiguration: WKWebViewConfiguration {
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = websiteDataSource
+        configuration.processPool = processPool
         return WKWebViewConfiguration()
     }
     
