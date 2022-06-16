@@ -19,10 +19,10 @@ final class MainViewController: UIViewController {
             name: "Main",
             bundle: nil
         )
-        guard let viewController = storyboard.instantiateInitialViewController() else {
+        guard let viewController = storyboard.instantiateInitialViewController() as? MainViewController else {
             fatalError()
         }
-        viewController.viewModel = viewModel
+        viewController.configure(viewModel: viewModel)
         return viewController
     }
     
@@ -61,8 +61,10 @@ final class MainViewController: UIViewController {
     
     // MARK: Private methods
     
-    private func configureWithViewModel() {
-        viewModel.loadURL = { [weak self] url in
+    private func configure(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        
+        self.viewModel.loadURL = { [weak self] url in
             guard let self = self else { return }
             
             DispatchQueue.main.async {

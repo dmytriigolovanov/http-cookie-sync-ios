@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 
-final class MainViewMediator {
+final class MainViewMediator: NSObject {
     private let viewModel: MainViewModel
     private let webView: WKWebView
     
@@ -20,6 +20,9 @@ final class MainViewMediator {
     ) {
         self.viewModel = viewModel
         self.webView = webView
+        super.init()
+        
+        setupWebView()
     }
     
     // MARK: Setup

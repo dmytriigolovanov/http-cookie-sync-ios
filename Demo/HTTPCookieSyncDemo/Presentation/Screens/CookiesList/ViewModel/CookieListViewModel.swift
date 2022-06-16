@@ -35,6 +35,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
     // MARK: OUTPUT properties
     
     private(set) var sections: [CookiesListViewModelSection] = []
+    var dataUpdated: (() -> Void)?
     
     // MARK: Init
     
@@ -48,6 +49,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
     // MARK: Private methods
     
     private func updateData() {
+        self.sections = []
         var sections: [CookiesListViewModelSection] = []
         
         let dispatchGroup = DispatchGroup()
@@ -60,7 +62,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
                     title: "\(type(of: storage))",
                     cookies: cookies
                 )
-                self.sections.append(section)
+                sections.append(section)
                 dispatchGroup.leave()
             }
             
@@ -68,7 +70,8 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
         }
         
         dispatchGroup.notify(queue: .main) {
-            dataUpdated?()
+            self.sections = sections
+            self.dataUpdated?()
         }
     }
     
@@ -78,7 +81,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
         updateData()
     }
     
-    func didSelectTableViewRow(atIndexPath indexPath: IndexPath) {
+    func didSelectTableViewRow(at indexPath: IndexPath) {
         
     }
 }

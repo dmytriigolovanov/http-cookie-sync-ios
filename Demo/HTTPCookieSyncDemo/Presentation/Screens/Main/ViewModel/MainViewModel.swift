@@ -20,7 +20,7 @@ protocol MainViewModelInput {
     func decidePolicyFor(
         wkNavigationResponse: WKNavigationResponse,
         inWebView webView: WKWebView,
-        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+        decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     )
 }
 
@@ -28,7 +28,7 @@ protocol MainViewModelInput {
 
 protocol MainViewModelOutput {
     var url: URL { get }
-    var loadURL: ((URL) -> Void)? { get set )
+    var loadURL: ((URL) -> Void)? { get set }
 }
 
 typealias MainViewModel = MainViewModelInput & MainViewModelOutput
@@ -37,7 +37,7 @@ typealias MainViewModel = MainViewModelInput & MainViewModelOutput
 
 final class DefaultMainViewModel: MainViewModel {
     
-    private let url: URL
+    let url: URL
     
     var loadURL: ((URL) -> Void)?
     
@@ -68,7 +68,7 @@ final class DefaultMainViewModel: MainViewModel {
     func decidePolicyFor(
         wkNavigationResponse: WKNavigationResponse,
         inWebView webView: WKWebView,
-        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+        decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
         AppConfiguration.httpCookieSyncer.sync {
             decisionHandler(.allow)

@@ -16,8 +16,7 @@ final class CookiesListViewController: UIViewController {
         with viewModel: CookiesListViewModel
     ) -> CookiesListViewController {
         let viewControlelr = CookiesListViewController()
-        viewControlelr.viewModel = viewModel
-        configureWithViewModel()
+        viewControlelr.configure(viewModel: viewModel)
         return viewControlelr
     }
     
@@ -55,8 +54,10 @@ final class CookiesListViewController: UIViewController {
     
     // MARK: Private methods
     
-    private func configureWithViewModel() {
-        viewModel.dataUpdated = { [weak self] in
+    private func configure(viewModel: CookiesListViewModel) {
+        self.viewModel = viewModel
+        
+        self.viewModel.dataUpdated = { [weak self] in
             guard let self = self else { return }
             
             DispatchQueue.main.async {

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class CookiesListViewMediator {
+final class CookiesListViewMediator: NSObject {
     private let viewModel: CookiesListViewModel
     private let tableView: UITableView
     
@@ -20,6 +20,7 @@ final class CookiesListViewMediator {
     ) {
         self.viewModel = viewModel
         self.tableView = tableView
+        super.init()
         
         setupTableView()
     }
