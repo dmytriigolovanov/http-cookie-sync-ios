@@ -14,6 +14,11 @@
 		B403F2CE2856419000309954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403F2CC2856419000309954 /* LaunchScreen.storyboard */; };
 		B403F2DD2856443600309954 /* HTTPCookieSync in Frameworks */ = {isa = PBXBuildFile; productRef = B403F2DC2856443600309954 /* HTTPCookieSync */; };
 		B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2DE285644ED00309954 /* AppConfiguration.swift */; };
+		B417EE5D285BA3B70019C115 /* CookiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */; };
+		B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */; };
+		B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */; };
+		B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */; };
+		B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		B403F2CD2856419000309954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B403F2CF2856419000309954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B403F2DE285644ED00309954 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewController.swift; sourceTree = "<group>"; };
+		B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieListViewModel.swift; sourceTree = "<group>"; };
+		B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewMediator.swift; sourceTree = "<group>"; };
+		B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelSection.swift; sourceTree = "<group>"; };
+		B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				B403F2C72856418E00309954 /* Main.storyboard */,
+				B417EE57285BA3430019C115 /* Screens */,
 				B403F2C52856418E00309954 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -91,6 +102,42 @@
 				B403F2CC2856419000309954 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B417EE57285BA3430019C115 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE59285BA3780019C115 /* CookiesList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B417EE59285BA3780019C115 /* CookiesList */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5A285BA3890019C115 /* View */,
+				B417EE5B285BA38D0019C115 /* ViewModel */,
+			);
+			path = CookiesList;
+			sourceTree = "<group>";
+		};
+		B417EE5A285BA3890019C115 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */,
+				B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B417EE5B285BA38D0019C115 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */,
+				B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */,
+				B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */,
 				B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */,
 				B403F2C62856418E00309954 /* ViewController.swift in Sources */,
+				B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */,
+				B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */,
+				B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */,
+				B417EE5D285BA3B70019C115 /* CookiesListViewController.swift in Sources */,
 				B403F2C22856418E00309954 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
