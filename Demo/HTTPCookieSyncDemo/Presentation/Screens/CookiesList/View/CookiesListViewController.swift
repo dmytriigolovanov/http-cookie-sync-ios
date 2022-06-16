@@ -12,9 +12,13 @@ final class CookiesListViewController: UIViewController {
     
     // MARK: Build
     
-    static func build(with viewModel: CookiesListViewModel) {
+    static func build(
+        with viewModel: CookiesListViewModel
+    ) -> CookiesListViewController {
         let viewControlelr = CookiesListViewController()
-        viewControlelr.viewModel
+        viewControlelr.viewModel = viewModel
+        configureWithViewModel()
+        return viewControlelr
     }
     
     // MARK: Private properties
@@ -46,7 +50,7 @@ final class CookiesListViewController: UIViewController {
             tableView: tableView
         )
         
-        viewModel?.viewDidLoad()
+        viewModel.viewDidLoad()
     }
     
     // MARK: Private methods

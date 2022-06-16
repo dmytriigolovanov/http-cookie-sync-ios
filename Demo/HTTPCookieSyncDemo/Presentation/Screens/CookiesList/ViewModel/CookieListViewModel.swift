@@ -75,7 +75,7 @@ final class DefaultCookiesListViewModel: CookiesListViewModel {
     // MARK: INPUT methods
     
     func viewDidLoad() {
-        
+        updateData()
     }
     
     func didSelectTableViewRow(atIndexPath indexPath: IndexPath) {
