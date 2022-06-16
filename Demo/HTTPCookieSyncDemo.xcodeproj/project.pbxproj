@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B403F2C22856418E00309954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2C12856418E00309954 /* AppDelegate.swift */; };
-		B403F2C62856418E00309954 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2C52856418E00309954 /* ViewController.swift */; };
-		B403F2C92856418E00309954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403F2C72856418E00309954 /* Main.storyboard */; };
+		B403F2C62856418E00309954 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2C52856418E00309954 /* MainViewController.swift */; };
 		B403F2CB2856419000309954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B403F2CA2856419000309954 /* Assets.xcassets */; };
 		B403F2CE2856419000309954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403F2CC2856419000309954 /* LaunchScreen.storyboard */; };
 		B403F2DD2856443600309954 /* HTTPCookieSync in Frameworks */ = {isa = PBXBuildFile; productRef = B403F2DC2856443600309954 /* HTTPCookieSync */; };
@@ -19,13 +18,15 @@
 		B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */; };
 		B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */; };
 		B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */; };
+		B4B239D2285BCAF200631FF7 /* MainViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */; };
+		B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D4285BCB9000631FF7 /* MainViewModel.swift */; };
+		B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B239D6285BCFFE00631FF7 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B403F2BE2856418E00309954 /* HTTPCookieSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTPCookieSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B403F2C12856418E00309954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B403F2C52856418E00309954 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B403F2C82856418E00309954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B403F2C52856418E00309954 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B403F2CA2856419000309954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B403F2CD2856419000309954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B403F2CF2856419000309954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +36,9 @@
 		B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewMediator.swift; sourceTree = "<group>"; };
 		B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelSection.swift; sourceTree = "<group>"; };
 		B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelItem.swift; sourceTree = "<group>"; };
+		B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewMediator.swift; sourceTree = "<group>"; };
+		B4B239D4285BCB9000631FF7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B4B239D7285BCFFE00631FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +91,7 @@
 		B403F2D72856420000309954 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				B403F2C72856418E00309954 /* Main.storyboard */,
 				B417EE57285BA3430019C115 /* Screens */,
-				B403F2C52856418E00309954 /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -107,6 +109,7 @@
 		B417EE57285BA3430019C115 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B4B239CE285BCA6200631FF7 /* Main */,
 				B417EE59285BA3780019C115 /* CookiesList */,
 			);
 			path = Screens;
@@ -136,6 +139,33 @@
 				B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */,
 				B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */,
 				B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4B239CE285BCA6200631FF7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239CF285BCA6800631FF7 /* View */,
+				B4B239D3285BCB7200631FF7 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B4B239CF285BCA6800631FF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239D6285BCFFE00631FF7 /* Main.storyboard */,
+				B403F2C52856418E00309954 /* MainViewController.swift */,
+				B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4B239D3285BCB7200631FF7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239D4285BCB9000631FF7 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -205,9 +235,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */,
 				B403F2CE2856419000309954 /* LaunchScreen.storyboard in Resources */,
 				B403F2CB2856419000309954 /* Assets.xcassets in Resources */,
-				B403F2C92856418E00309954 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,9 +271,11 @@
 			files = (
 				B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */,
 				B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */,
-				B403F2C62856418E00309954 /* ViewController.swift in Sources */,
+				B403F2C62856418E00309954 /* MainViewController.swift in Sources */,
 				B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */,
 				B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */,
+				B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */,
+				B4B239D2285BCAF200631FF7 /* MainViewMediator.swift in Sources */,
 				B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */,
 				B417EE5D285BA3B70019C115 /* CookiesListViewController.swift in Sources */,
 				B403F2C22856418E00309954 /* AppDelegate.swift in Sources */,
@@ -253,20 +285,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B403F2C72856418E00309954 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B403F2C82856418E00309954 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B403F2CC2856419000309954 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B403F2CD2856419000309954 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B4B239D6285BCFFE00631FF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4B239D7285BCFFE00631FF7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
