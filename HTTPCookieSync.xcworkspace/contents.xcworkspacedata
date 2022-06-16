@@ -4,4 +4,7 @@
    <FileRef
       location = "group:HTTPCookieSync.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Demo/HTTPCookieSyncDemo.xcodeproj">
+   </FileRef>
 </Workspace>

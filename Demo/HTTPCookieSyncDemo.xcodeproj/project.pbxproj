@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B403F2C22856418E00309954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2C12856418E00309954 /* AppDelegate.swift */; };
+		B403F2C62856418E00309954 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2C52856418E00309954 /* MainViewController.swift */; };
+		B403F2CB2856419000309954 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B403F2CA2856419000309954 /* Assets.xcassets */; };
+		B403F2CE2856419000309954 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B403F2CC2856419000309954 /* LaunchScreen.storyboard */; };
+		B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B403F2DE285644ED00309954 /* AppConfiguration.swift */; };
+		B417EE5D285BA3B70019C115 /* CookiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */; };
+		B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */; };
+		B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */; };
+		B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */; };
+		B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */; };
+		B4B239D2285BCAF200631FF7 /* MainViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */; };
+		B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D4285BCB9000631FF7 /* MainViewModel.swift */; };
+		B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B239D6285BCFFE00631FF7 /* Main.storyboard */; };
+		B4B239DB285BD32D00631FF7 /* HTTPCookieSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; };
+		B4B239DC285BD32D00631FF7 /* HTTPCookieSync.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4B239E1285BD92F00631FF7 /* HTTPCookie+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */; };
+		B4B239E3285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B4B239DD285BD32D00631FF7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B4B239DC285BD32D00631FF7 /* HTTPCookieSync.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B403F2BE2856418E00309954 /* HTTPCookieSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTPCookieSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B403F2C12856418E00309954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B403F2C52856418E00309954 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B403F2CA2856419000309954 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B403F2CD2856419000309954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B403F2CF2856419000309954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B403F2DE285644ED00309954 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewController.swift; sourceTree = "<group>"; };
+		B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieListViewModel.swift; sourceTree = "<group>"; };
+		B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewMediator.swift; sourceTree = "<group>"; };
+		B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelSection.swift; sourceTree = "<group>"; };
+		B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesListViewModelItem.swift; sourceTree = "<group>"; };
+		B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewMediator.swift; sourceTree = "<group>"; };
+		B4B239D4285BCB9000631FF7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B4B239D7285BCFFE00631FF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HTTPCookieSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Extensions.swift"; sourceTree = "<group>"; };
+		B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookiePropertyKey+Extensions.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B403F2BB2856418E00309954 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B239DB285BD32D00631FF7 /* HTTPCookieSync.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B403F2B52856418E00309954 = {
+			isa = PBXGroup;
+			children = (
+				B403F2C02856418E00309954 /* HTTPCookieSyncDemo */,
+				B403F2BF2856418E00309954 /* Products */,
+				B4B239D9285BD32D00631FF7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B403F2BF2856418E00309954 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B403F2BE2856418E00309954 /* HTTPCookieSyncDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B403F2C02856418E00309954 /* HTTPCookieSyncDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B403F2D6285641DD00309954 /* Application */,
+				B4B239DE285BD91000631FF7 /* Common */,
+				B403F2D72856420000309954 /* Presentation */,
+				B403F2D82856421700309954 /* Resources */,
+			);
+			path = HTTPCookieSyncDemo;
+			sourceTree = "<group>";
+		};
+		B403F2D6285641DD00309954 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B403F2DE285644ED00309954 /* AppConfiguration.swift */,
+				B403F2C12856418E00309954 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B403F2D72856420000309954 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE57285BA3430019C115 /* Screens */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B403F2D82856421700309954 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B403F2CA2856419000309954 /* Assets.xcassets */,
+				B403F2CF2856419000309954 /* Info.plist */,
+				B403F2CC2856419000309954 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B417EE57285BA3430019C115 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239CE285BCA6200631FF7 /* Main */,
+				B417EE59285BA3780019C115 /* CookiesList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B417EE59285BA3780019C115 /* CookiesList */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5A285BA3890019C115 /* View */,
+				B417EE5B285BA38D0019C115 /* ViewModel */,
+			);
+			path = CookiesList;
+			sourceTree = "<group>";
+		};
+		B417EE5A285BA3890019C115 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5C285BA3B70019C115 /* CookiesListViewController.swift */,
+				B417EE60285BA3F00019C115 /* CookiesListViewMediator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B417EE5B285BA38D0019C115 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B417EE5E285BA3C50019C115 /* CookieListViewModel.swift */,
+				B417EE62285BA5140019C115 /* CookiesListViewModelSection.swift */,
+				B417EE64285BA5580019C115 /* CookiesListViewModelItem.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4B239CE285BCA6200631FF7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239CF285BCA6800631FF7 /* View */,
+				B4B239D3285BCB7200631FF7 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B4B239CF285BCA6800631FF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239D6285BCFFE00631FF7 /* Main.storyboard */,
+				B403F2C52856418E00309954 /* MainViewController.swift */,
+				B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B4B239D3285BCB7200631FF7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239D4285BCB9000631FF7 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B4B239D9285BD32D00631FF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4B239DE285BD91000631FF7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239DF285BD92100631FF7 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B4B239DF285BD92100631FF7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */,
+				B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B403F2BD2856418E00309954 /* HTTPCookieSyncDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B403F2D22856419000309954 /* Build configuration list for PBXNativeTarget "HTTPCookieSyncDemo" */;
+			buildPhases = (
+				B403F2DA2856434700309954 /* SwiftLint */,
+				B403F2BA2856418E00309954 /* Sources */,
+				B403F2BB2856418E00309954 /* Frameworks */,
+				B403F2BC2856418E00309954 /* Resources */,
+				B4B239DD285BD32D00631FF7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTTPCookieSyncDemo;
+			packageProductDependencies = (
+			);
+			productName = HTTPCookieSyncDemo;
+			productReference = B403F2BE2856418E00309954 /* HTTPCookieSyncDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B403F2B62856418E00309954 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					B403F2BD2856418E00309954 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = B403F2B92856418E00309954 /* Build configuration list for PBXProject "HTTPCookieSyncDemo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B403F2B52856418E00309954;
+			packageReferences = (
+				B403F2DB2856443600309954 /* XCRemoteSwiftPackageReference "http-cookie-sync-ios" */,
+			);
+			productRefGroup = B403F2BF2856418E00309954 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B403F2BD2856418E00309954 /* HTTPCookieSyncDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B403F2BC2856418E00309954 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */,
+				B403F2CE2856419000309954 /* LaunchScreen.storyboard in Resources */,
+				B403F2CB2856419000309954 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B403F2DA2856434700309954 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n    swiftlint\nelse\n    echo \"warning: Swiftlint not installed, use 'brew install swiftlint' to install\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B403F2BA2856418E00309954 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B417EE63285BA5140019C115 /* CookiesListViewModelSection.swift in Sources */,
+				B4B239E1285BD92F00631FF7 /* HTTPCookie+Extensions.swift in Sources */,
+				B403F2DF285644ED00309954 /* AppConfiguration.swift in Sources */,
+				B403F2C62856418E00309954 /* MainViewController.swift in Sources */,
+				B4B239E3285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift in Sources */,
+				B417EE5F285BA3C50019C115 /* CookieListViewModel.swift in Sources */,
+				B417EE61285BA3F00019C115 /* CookiesListViewMediator.swift in Sources */,
+				B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */,
+				B4B239D2285BCAF200631FF7 /* MainViewMediator.swift in Sources */,
+				B417EE65285BA5580019C115 /* CookiesListViewModelItem.swift in Sources */,
+				B417EE5D285BA3B70019C115 /* CookiesListViewController.swift in Sources */,
+				B403F2C22856418E00309954 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B403F2CC2856419000309954 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B403F2CD2856419000309954 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B4B239D6285BCFFE00631FF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4B239D7285BCFFE00631FF7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B403F2D02856419000309954 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B403F2D12856419000309954 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B403F2D32856419000309954 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HTTPCookieSyncDemo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dmytriigolovanov.http-cookie-sync.demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B403F2D42856419000309954 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HTTPCookieSyncDemo/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dmytriigolovanov.http-cookie-sync.demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B403F2B92856418E00309954 /* Build configuration list for PBXProject "HTTPCookieSyncDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B403F2D02856419000309954 /* Debug */,
+				B403F2D12856419000309954 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B403F2D22856419000309954 /* Build configuration list for PBXNativeTarget "HTTPCookieSyncDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B403F2D32856419000309954 /* Debug */,
+				B403F2D42856419000309954 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B403F2DB2856443600309954 /* XCRemoteSwiftPackageReference "http-cookie-sync-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytriigolovanov/http-cookie-sync-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+	};
+	rootObject = B403F2B62856418E00309954 /* Project object */;
+}
