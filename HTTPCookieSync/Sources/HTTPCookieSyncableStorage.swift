@@ -27,51 +27,44 @@ public protocol HTTPCookieSyncableStorage {
     )
 }
 
-// MARK: - Actualization
-
 extension HTTPCookieSyncableStorage {
     func actualize(
-        with cookies: [HTTPCookie],
-        completionHandler: @escaping () -> Void
+        with cookies: [HTTPCookie]
     ) {
-        let group = DispatchGroup()
+        let semaphore = DispatchSemaphore(value: 0)
         
-        group.enter()
         getAllCookies { oldCookies in
-            group.enter()
-            cookies.enumerated().forEach({ index, cookie in
-                guard oldCookies.shouldActualize(with: cookie) else {
-                    return
+            // Set new/relevant cookies
+            cookies.filter({ cookie in
+                guard
+                    let oldCookie = oldCookies.first(where: {
+                        $0.isSame(to: cookie)
+                    })
+                else {
+                    return true
                 }
-                group.enter()
-                self.setCookie(cookie) {
-                    group.leave()
+                return cookie.isRelevant(than: oldCookie)
+            }).forEach({ cookie in
+                setCookie(cookie) {
+                    // semaphore.signal()
                 }
-                
-                if index == cookies.count - 1 {
-                    group.leave()
-                }
+                // semaphore.wait()
             })
             
-            group.enter()
-            oldCookies.enumerated().forEach({ index, oldCookie in
-                guard cookies.contains(where: { $0.name == oldCookie.name }) else {
-                    return
+            // Delete old cookies
+            oldCookies.filter({ oldCookie in
+                !cookies.contains(where: {
+                    $0.isSame(to: oldCookie)
+                })
+            }).forEach({ oldCookie in
+                deleteCookie(oldCookie) {
+                    // semaphore.signal()
                 }
-                group.enter()
-                self.deleteCookie(oldCookie) {
-                    group.leave()
-                }
-                
-                if index == oldCookies.count - 1 {
-                    group.leave()
-                }
+                // semaphore.wait()
             })
-            group.leave()
+            
+            semaphore.signal()
         }
-        
-        group.notify(queue: .httpCookieSync) {
-            completionHandler()
-        }
+        semaphore.wait()
     }
 }

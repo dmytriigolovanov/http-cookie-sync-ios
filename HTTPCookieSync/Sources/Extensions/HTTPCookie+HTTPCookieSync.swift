@@ -19,41 +19,23 @@ extension HTTPCookie {
         }
         return Date(timeIntervalSinceReferenceDate: timeInterval)
     }
-}
-
-// MARK: - Array of HTTPCookie
-
-extension Array where Element: HTTPCookie {
-    func shouldActualize(
-        with cookie: Element
+    
+    func isSame(
+        to cookie: HTTPCookie
     ) -> Bool {
-        guard let oldCookie = self.first(where: { $0.name == cookie.name }) else {
-            return true
-        }
-        
+        return name == cookie.name && domain == cookie.domain
+    }
+    
+    func isRelevant(
+        than cookie: HTTPCookie
+    ) -> Bool {
         guard
-            let cookieCreated = cookie.created,
-            let oldCookieCreated = oldCookie.created
+            let created = self.created,
+            let cookieCreated = cookie.created
         else {
             return false
         }
         
-        return cookieCreated < oldCookieCreated
-    }
-    
-    mutating func actualize(
-        with cookie: Element
-    ) {
-        guard shouldActualize(with: cookie) else {
-            return
-        }
-        
-        enumerated().filter({ _, oldCookie in
-            oldCookie.name == cookie.name
-        }).forEach({ index, _ in
-            remove(at: index)
-        })
-        
-        append(cookie)
+        return cookieCreated < created
     }
 }
