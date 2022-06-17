@@ -12,7 +12,7 @@ final class HTTPCookieSyncCore: NSObject {
     private let storages: [HTTPCookieSyncableStorage]
     private let queue: DispatchQueue = .httpCookieSync
     
-    private var previousCookies: [HTTPCookie] = []
+    private var syncedCookies: [HTTPCookie] = []
     private var activeWorkItem: DispatchWorkItem?
     private var completionHandlersQueue: [() -> Void] = []
     
@@ -29,7 +29,10 @@ final class HTTPCookieSyncCore: NSObject {
     ) {
         completionHandlersQueue.append(completionHandler)
         
-        executeNewWorkItem {
+        executeNewWorkItem { [weak self] in
+            guard let self = self else { return }
+            
+            self.activeWorkItem = nil
             self.completionHandlersQueue.forEach { completionHandler in
                 completionHandler()
             }
@@ -39,77 +42,88 @@ final class HTTPCookieSyncCore: NSObject {
     
     // MARK: DispatchWorkItem
     
+    private func createWorkItem(
+        completionHandler: @escaping () -> Void
+    ) -> DispatchWorkItem {
+        return DispatchWorkItem {
+            let dispatchSemaphore = DispatchSemaphore(value: 0)
+            
+            self.getSyncedCookies { syncedCookies in
+                self.syncedCookies = syncedCookies
+                dispatchSemaphore.signal()
+            }
+            dispatchSemaphore.wait()
+            
+            // Actualize storages
+            self.storages.forEach { storage in
+                storage.getAllCookies { cookies in
+                    self.syncedCookies.forEach({ syncedCookie in
+                        storage.setCookie(syncedCookie) {
+//                            dispatchSemaphore.signal()
+                        }
+//                        dispatchSemaphore.wait()
+                    })
+                    
+                    cookies.filter({ cookie in
+                        self.syncedCookies.contains(where: { $0.isSame(to: cookie) }) == false
+                    }).forEach({ cookie in
+                        storage.deleteCookie(cookie) {
+//                            dispatchSemaphore.signal()
+                        }
+//                        dispatchSemaphore.wait()
+                    })
+                    
+                    dispatchSemaphore.signal()
+                }
+                dispatchSemaphore.wait()
+            }
+            
+            completionHandler()
+        }
+    }
+    
     private func executeNewWorkItem(
         completionHandler: @escaping () -> Void
     ) {
         activeWorkItem?.cancel()
         
-        let workItem = DispatchWorkItem {
-            self.getActualCookies { actualCookies in
-                self.actualizeStorages(with: actualCookies) {
-                    completionHandler()
-                    self.activeWorkItem = nil
-                }
-            }
-        }
+        let workItem = createWorkItem(
+            completionHandler: completionHandler
+        )
         
         activeWorkItem = workItem
         queue.async(execute: workItem)
     }
     
-    // MARK: Actual cookies
+    // MARK: Synced cookies
     
-    private func getActualCookies(
-        _ completionHandler: @escaping ([HTTPCookie]) -> Void
+    private func getSyncedCookies(
+        completionHandler: @escaping ([HTTPCookie]) -> Void
     ) {
-        var actualCookies: [HTTPCookie] = self.previousCookies
+        var syncedCookies: [HTTPCookie] = self.syncedCookies
         
-        let group = DispatchGroup()
+        let dispatchSemaphore = DispatchSemaphore(value: 0)
         
-        group.enter()
-        storages.enumerated().forEach { index, storage in
-            group.enter()
+        storages.forEach { storage in
             storage.getAllCookies { cookies in
-                
                 cookies.forEach { cookie in
-                    actualCookies.actualize(with: cookie)
+                    guard syncedCookies.shouldActualize(with: cookie) else {
+                        return
+                    }
+
+                    syncedCookies.enumerated().filter({ _, syncedCookie in
+                        cookie.name == syncedCookie.name && cookie.domain == syncedCookie.domain
+                    }).forEach({ index, _ in
+                        syncedCookies.remove(at: index)
+                    })
+                    
+                    syncedCookies.append(cookie)
                 }
-                
-                group.leave()
+                dispatchSemaphore.signal()
             }
-            
-            if index == storages.count - 1 {
-                group.leave()
-            }
+            dispatchSemaphore.wait()
         }
         
-        group.notify(queue: .httpCookieSync) {
-            completionHandler(actualCookies)
-        }
-    }
-    
-    // MARK: Actualize
-    
-    private func actualizeStorages(
-        with cookies: [HTTPCookie],
-        _ completionHandler: @escaping () -> Void
-    ) {
-        let group = DispatchGroup()
-        
-        group.enter()
-        self.storages.enumerated().forEach { index, storage in
-            group.enter()
-            storage.actualize(with: cookies) {
-                group.leave()
-            }
-            
-            if index == storages.count - 1 {
-                group.leave()
-            }
-        }
-        
-        group.notify(queue: .httpCookieSync) {
-            completionHandler()
-        }
+        completionHandler(syncedCookies)
     }
 }
