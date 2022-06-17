@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HTTPCookieSync'
-  s.version          = '1.1.2'
+  s.version          = '1.2.0'
   s.summary          = 'Use HTTPCookieSync to sync cookies storages'
 
   s.description      = <<-DESC
@@ -26,5 +26,6 @@ HTTPCookieSync is an iOS library that allows synchronizing cookies between HTTPC
   s.swift_version = '5.3'
 
   s.source_files  = 'HTTPCookieSync/Sources/**/*'
+  s.exclude_files = 'Demo/**/*'
   s.public_header_files = 'HTTPCookieSync/Sources/Headers/**/*.h'
 end
