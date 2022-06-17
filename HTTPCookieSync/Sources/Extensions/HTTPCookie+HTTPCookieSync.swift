@@ -25,25 +25,17 @@ extension HTTPCookie {
     ) -> Bool {
         return name == cookie.name && domain == cookie.domain
     }
-}
-
-// MARK: - Array of HTTPCookie
-
-extension Array where Element: HTTPCookie {
-    func shouldActualize(
-        with cookie: Element
+    
+    func isRelevant(
+        than cookie: HTTPCookie
     ) -> Bool {
-        guard let oldCookie = self.first(where: { $0.isSame(to: cookie) }) else {
-            return true
-        }
-        
         guard
-            let cookieCreated = cookie.created,
-            let oldCookieCreated = oldCookie.created
+            let created = self.created,
+            let cookieCreated = cookie.created
         else {
             return false
         }
         
-        return cookieCreated < oldCookieCreated
+        return cookieCreated < created
     }
 }

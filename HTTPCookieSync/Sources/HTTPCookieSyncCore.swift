@@ -46,36 +46,16 @@ final class HTTPCookieSyncCore: NSObject {
         completionHandler: @escaping () -> Void
     ) -> DispatchWorkItem {
         return DispatchWorkItem {
-            let dispatchSemaphore = DispatchSemaphore(value: 0)
+            let semaphore = DispatchSemaphore(value: 0)
             
             self.getSyncedCookies { syncedCookies in
                 self.syncedCookies = syncedCookies
-                dispatchSemaphore.signal()
+                semaphore.signal()
             }
-            dispatchSemaphore.wait()
+            semaphore.wait()
             
-            // Actualize storages
             self.storages.forEach { storage in
-                storage.getAllCookies { cookies in
-                    self.syncedCookies.forEach({ syncedCookie in
-                        storage.setCookie(syncedCookie) {
-//                            dispatchSemaphore.signal()
-                        }
-//                        dispatchSemaphore.wait()
-                    })
-                    
-                    cookies.filter({ cookie in
-                        self.syncedCookies.contains(where: { $0.isSame(to: cookie) }) == false
-                    }).forEach({ cookie in
-                        storage.deleteCookie(cookie) {
-//                            dispatchSemaphore.signal()
-                        }
-//                        dispatchSemaphore.wait()
-                    })
-                    
-                    dispatchSemaphore.signal()
-                }
-                dispatchSemaphore.wait()
+                storage.actualize(with: self.syncedCookies)
             }
             
             completionHandler()
@@ -102,26 +82,34 @@ final class HTTPCookieSyncCore: NSObject {
     ) {
         var syncedCookies: [HTTPCookie] = self.syncedCookies
         
-        let dispatchSemaphore = DispatchSemaphore(value: 0)
+        let semaphore = DispatchSemaphore(value: 0)
         
         storages.forEach { storage in
             storage.getAllCookies { cookies in
                 cookies.forEach { cookie in
-                    guard syncedCookies.shouldActualize(with: cookie) else {
-                        return
-                    }
+                    var relevanceCookie: HTTPCookie = cookie
+                    
+                    let sameCookies = syncedCookies.filter({
+                        $0.isSame(to: cookie)
+                    })
+                    
+                    sameCookies.filter({
+                        $0.isRelevant(than: relevanceCookie)
+                    }).forEach({ sameCookie in
+                        relevanceCookie = sameCookie
+                    })
 
-                    syncedCookies.enumerated().filter({ _, syncedCookie in
-                        cookie.name == syncedCookie.name && cookie.domain == syncedCookie.domain
+                    sameCookies.enumerated().filter({ _, sameCookie in
+                        sameCookie != relevanceCookie
                     }).forEach({ index, _ in
                         syncedCookies.remove(at: index)
                     })
                     
-                    syncedCookies.append(cookie)
+                    syncedCookies.append(relevanceCookie)
                 }
-                dispatchSemaphore.signal()
+                semaphore.signal()
             }
-            dispatchSemaphore.wait()
+            semaphore.wait()
         }
         
         completionHandler(syncedCookies)

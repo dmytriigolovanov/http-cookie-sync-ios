@@ -26,3 +26,45 @@ public protocol HTTPCookieSyncableStorage {
         completionHandler: (() -> Void)?
     )
 }
+
+extension HTTPCookieSyncableStorage {
+    func actualize(
+        with cookies: [HTTPCookie]
+    ) {
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        getAllCookies { oldCookies in
+            // Set new/relevant cookies
+            cookies.filter({ cookie in
+                guard
+                    let oldCookie = oldCookies.first(where: {
+                        $0.isSame(to: cookie)
+                    })
+                else {
+                    return true
+                }
+                return cookie.isRelevant(than: oldCookie)
+            }).forEach({ cookie in
+                setCookie(cookie) {
+                    // semaphore.signal()
+                }
+                // semaphore.wait()
+            })
+            
+            // Delete old cookies
+            oldCookies.filter({ oldCookie in
+                !cookies.contains(where: {
+                    $0.isSame(to: oldCookie)
+                })
+            }).forEach({ oldCookie in
+                deleteCookie(oldCookie) {
+                    // semaphore.signal()
+                }
+                // semaphore.wait()
+            })
+            
+            semaphore.signal()
+        }
+        semaphore.wait()
+    }
+}
