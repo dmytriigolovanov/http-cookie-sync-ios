@@ -1,10 +1,11 @@
 # HTPCookieSync iOS
 
-HTTPCookieSync is an iOS library that allows to synchronize cookies between HTTPCookieStorage and WebKit's WKHTTPCookieStore.
+HTTPCookieSync is an iOS framework that allows to synchronize cookies between HTTPCookieStorage and WebKit's WKHTTPCookieStore.
 
 ## Requirements
 
 * iOS 11.0+
+* Swift 5.3+
 
 ## Installation
 
@@ -39,7 +40,7 @@ let httpCookieSyncer = HTTPCookieSyncer.default
 
 ...
 
-httpCookieSyncer.synchronize {
+httpCookieSyncer.syncStorages {
     // cookies were synced
 }
 ```
@@ -61,6 +62,11 @@ let httpCookieSyncer = HTTPCookieSyncer(
     ]
 )
 ```
+
+## Demo
+
+You can look at the provided demo application.
+Check the [Demo](https://github.com/dmytriigolovanov/http-cookie-sync-ios/blob/main/Demo) directory.
 
 ## Authors
 
