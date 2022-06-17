@@ -20,25 +20,9 @@
 		B4B239D2285BCAF200631FF7 /* MainViewMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D1285BCAF200631FF7 /* MainViewMediator.swift */; };
 		B4B239D5285BCB9000631FF7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239D4285BCB9000631FF7 /* MainViewModel.swift */; };
 		B4B239D8285BCFFE00631FF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B239D6285BCFFE00631FF7 /* Main.storyboard */; };
-		B4B239DB285BD32D00631FF7 /* HTTPCookieSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; };
-		B4B239DC285BD32D00631FF7 /* HTTPCookieSync.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4B239DA285BD32D00631FF7 /* HTTPCookieSync.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4B239E1285BD92F00631FF7 /* HTTPCookie+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E0285BD92F00631FF7 /* HTTPCookie+Extensions.swift */; };
 		B4B239E3285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B239E2285BD95900631FF7 /* HTTPCookiePropertyKey+Extensions.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B4B239DD285BD32D00631FF7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B4B239DC285BD32D00631FF7 /* HTTPCookieSync.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B403F2BE2856418E00309954 /* HTTPCookieSyncDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTTPCookieSyncDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B239DB285BD32D00631FF7 /* HTTPCookieSync.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +211,6 @@
 				B403F2BA2856418E00309954 /* Sources */,
 				B403F2BB2856418E00309954 /* Frameworks */,
 				B403F2BC2856418E00309954 /* Resources */,
-				B4B239DD285BD32D00631FF7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -547,8 +529,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytriigolovanov/http-cookie-sync-ios";
 			requirement = {
-				kind = exactVersion;
-				version = 1.1.2;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
