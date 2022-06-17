@@ -24,7 +24,7 @@ final class HTTPCookieSyncCore: NSObject {
         self.storages = storages
     }
     
-    func sync(
+    func syncStorages(
         completionHandler: @escaping () -> Void
     ) {
         completionHandlersQueue.append(completionHandler)

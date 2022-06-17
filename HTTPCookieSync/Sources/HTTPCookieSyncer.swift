@@ -31,18 +31,20 @@ public final class HTTPCookieSyncer {
         
      - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
      */
+    public func syncStorages(
+        completionHandler: @escaping () -> Void = {}
+    ) {
+        core.syncStorages(completionHandler: completionHandler)
+    }
+    
+    @available(*, deprecated, renamed: "syncStorages")
     public func sync(
         _ completionHandler: @escaping () -> Void = {}
     ) {
-        core.sync(completionHandler: completionHandler)
+        core.syncStorages(completionHandler: completionHandler)
     }
     
-    /**
-     Synchronizes cookies in provided storages.
-        
-     - Parameter completionHandler: A block to invoke once the cookies have been synchronized.
-     */
-    @available(*, deprecated, renamed: "sync")
+    @available(*, deprecated, renamed: "syncStorages")
     public func synchronize(
         _ completionHandler: @escaping () -> Void = {}
     ) {
